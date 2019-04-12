@@ -1,0 +1,35 @@
+{
+  "name": "message",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "content_type": {
+      "type": "string",
+      "required": true,
+      "default": "text"
+    },
+    "content": {
+      "type": "string",
+      "required": true
+    },
+    "is_read": {
+      "type": "boolean",
+      "default": false
+    },
+    "created_at": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "conversation": {
+      "type": "belongsTo",
+      "model": "conversation"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

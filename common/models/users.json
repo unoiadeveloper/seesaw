@@ -1,0 +1,132 @@
+{
+  "name": "users",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "realm"
+  ],
+  "properties": {
+    "username": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "fbId": {
+      "type": "number",
+      "required": false,
+      "index": {
+        "unique": true
+      }
+    },
+    "fbAccessToken": {
+      "type": "string"
+    },
+    "profileImg": {
+      "type": "string"
+    },
+    "verified": {
+      "type": {
+        "facebook": {
+          "type": "boolean",
+          "default": false
+        },
+        "phone": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "created_at": {
+      "type": "date"
+    },
+    "updated_at": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "services": {
+      "type": "hasMany",
+      "model": "services",
+      "foreignKey": "usersId"
+    },
+    "certificate": {
+      "type": "hasMany",
+      "model": "certificate",
+      "foreignKey": "usersId"
+    },
+    "conversations": {
+      "type": "hasAndBelongsToMany",
+      "model": "conversation",
+      "foreignKey": "usersId"
+    },
+    "hiree": {
+      "type": "hasMany",
+      "model": "hire",
+      "foreignKey": "hireeId"
+    },
+    "hirer": {
+      "type": "hasMany",
+      "model": "hire",
+      "foreignKey": "hirerId"
+    },
+    "servicewanter": {
+      "type": "hasMany",
+      "model": "swap",
+      "foreignKey": "wanterId"
+    },
+    "serviceprovider": {
+      "type": "hasMany",
+      "model": "swap",
+      "foreignKey": "providerId"
+    },
+    "reviewfor": {
+      "type": "hasMany",
+      "model": "review",
+      "foreignKey": "forId"
+    },
+    "reviewby": {
+      "type": "hasMany",
+      "model": "review",
+      "foreignKey": "byId"
+    },
+    "userdata": {
+      "type": "hasOne",
+      "model": "userdata",
+      "foreignKey": "usersId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "__get__services"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "fbLogin"
+    }
+  ],
+  "methods": {}
+}

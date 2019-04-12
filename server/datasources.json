@@ -1,0 +1,28 @@
+{
+  "email": {
+    "name": "email",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "auth": {
+          "user": "seesawunoia@gmail.com",
+          "pass": "010110@unoia"
+        }
+      }
+    ]
+  },
+  "db": {
+    "host": "seesaw-shard-00-00-h8mcf.mongodb.net",
+    "port": 27017,
+    "url": "mongodb://s3eSaWaDM1N:pPWEzPScYggS3RDS@seesaw-shard-00-00-h8mcf.mongodb.net:27017,seesaw-shard-00-01-h8mcf.mongodb.net:27017,seesaw-shard-00-02-h8mcf.mongodb.net:27017/test?ssl=true&replicaSet=seesaw-shard-0&authSource=admin",
+    "database": "seesaw",
+    "password": "pPWEzPScYggS3RDS",
+    "name": "db",
+    "user": "s3eSaWaDM1N",
+    "connector": "mongodb"
+  }
+}

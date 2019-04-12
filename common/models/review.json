@@ -1,0 +1,39 @@
+{
+  "name": "review",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "rating": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "text": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "date"
+    },
+    "updated_at": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "by": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": ""
+    },
+    "for": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

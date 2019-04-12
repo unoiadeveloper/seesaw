@@ -1,0 +1,43 @@
+{
+  "name": "conversation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "sender": {
+      "type": "string"
+    },
+    "receiver": {
+      "type": "string"
+    },
+    "total_messages": {
+      "type": "number"
+    },
+    "unread_messages": {
+      "type": "number"
+    },
+    "is_archived": {
+      "type": "boolean",
+      "default": false
+    },
+    "created_at": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "messages": {
+      "type": "hasMany",
+      "model": "message",
+      "foreignKey": "conversationId"
+    },
+    "users": {
+      "type": "hasAndBelongsToMany",
+      "model": "users"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

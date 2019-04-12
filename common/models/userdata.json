@@ -1,0 +1,52 @@
+{
+  "name": "userdata",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "zip_code": {
+      "type": "number",
+      "required": true
+    },
+    "service_place": {
+      "type": {
+        "at_my_location" : {
+          "type": "boolean",
+          "default": false
+        },
+        "at_user_location" : {
+          "type": "boolean",
+          "default": false
+        },
+        "remotely" : {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": true
+    },
+    "categories" : {
+      "type" : {    
+        "id" : "string",
+        "name" : "string"
+      },
+      "required" :true
+    },
+    "distance": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "users": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,71 @@
+{
+  "name": "swap",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "service_want": {
+      "type": {
+        "id": "string",
+        "name": "string",
+        "username": "string",
+        "price": "number",
+        "where": "string",
+        "datetime": "date",
+        "is_completed": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": true
+    },
+    "service_provide": {
+      "type": {
+        "id": "string",
+        "name": "string",
+        "username": "string",
+        "price": "number",
+        "where": "string",
+        "datetime": "date",
+        "is_completed": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": true
+    },
+    "is_paid": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "boot": {
+      "type": "number",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": true
+    },
+    "created_at": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "wanter": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": ""
+    },
+    "provider": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

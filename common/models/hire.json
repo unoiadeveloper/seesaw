@@ -1,0 +1,46 @@
+{
+  "name": "hire",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "hireeId"
+  ],
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "where": {
+      "type": "string",
+      "required": true
+    },
+    "notes": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "services": {
+      "type": "belongsTo",
+      "model": "services"
+    },
+    "hiree": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": ""
+    },
+    "hirer": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

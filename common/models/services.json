@@ -1,0 +1,89 @@
+{
+  "name": "services",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "string"
+    },
+    "video": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "duration": {
+      "type": "string",
+      "required": true
+    },
+    "is_featured": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "service_place": {
+      "type": {
+        "at_my_location" : {
+          "type": "boolean",
+          "default": false
+        },
+        "at_user_location" : {
+          "type": "boolean",
+          "default": false
+        },
+        "remotely" : {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "location": {
+      "type": {
+        "points": "geopoint",
+        "address": "string",
+        "distance": "string"
+      },
+      "required": true
+    },
+    "created_at": {
+      "type": "date"
+    },
+    "updated_at": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "users": {
+      "type": "belongsTo",
+      "model": "users"
+    },
+    "category": {
+      "type": "belongsTo",
+      "model": "category"
+    },
+    "hires": {
+      "type": "hasMany",
+      "model": "hire",
+      "foreignKey": "servicesId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
